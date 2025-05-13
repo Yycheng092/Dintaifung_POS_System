@@ -244,6 +244,9 @@ public class MainMenuController {
 
         // 更新選中的產品
         selectedProduct = new Product(name, price, description, imageName);
+
+        // 每次選擇新產品時重置數量為 1
+        quantityComboBox.setValue(1);
     }
 
     private void selectProduct(Product product) {
