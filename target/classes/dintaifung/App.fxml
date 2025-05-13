@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="rootPane" prefHeight="250.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dintaifung.AppController">
+
+    <children>
+      <Button fx:id="Member_Login" layoutX="119.0" layoutY="189.0" prefHeight="36.0" prefWidth="104.0" style="-fx-font-size: 18px; -fx-background-color: #ff6347; -fx-text-fill: white;" text="會員登錄" />
+      <Button fx:id="Visitor_Registration" layoutY="189.0" prefHeight="36.0" prefWidth="104.0" style="-fx-font-size: 18px; -fx-background-color: #ff6347; -fx-text-fill: white;" text="訪客註冊" />
+      <Button fx:id="Backstage_Management" layoutX="236.0" layoutY="189.0" prefHeight="28.0" prefWidth="104.0" style="-fx-font-size: 18px; -fx-background-color: #ff6347; -fx-text-fill: white;" text="後台管理" />
+    </children>
+</AnchorPane>

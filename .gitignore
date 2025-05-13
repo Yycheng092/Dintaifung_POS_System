@@ -1,0 +1,22 @@
+# Java
+*.class
+*.jar
+
+# NetBeans
+nbproject/
+build/
+dist/
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+
+# 強制使用 LF 作為換行符號
+*.fxml text eol=lf
+*.java text eol=lf
+*.txt text eol=lf
+*.md text eol=lf

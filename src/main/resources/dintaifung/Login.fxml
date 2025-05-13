@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="180" prefWidth="300"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="dintaifung.LoginController">
+
+         <Label layoutX="110" layoutY="10" styleClass="header" text="會員登入" />
+
+         <Label layoutX="20.0" layoutY="83.0" text="電話：" />
+         <TextField fx:id="phoneField" layoutX="80.0" layoutY="78.0" prefWidth="200" promptText="請輸入電話 (09xxxxxxxx)" styleClass="text-field" />
+
+         <Label fx:id="errorLabel" layoutX="80" layoutY="95" style="-fx-text-fill:red;" text="查無此會員，請重新輸入" visible="false" />
+
+         <Button fx:id="loginButton" disable="true"
+                 layoutX="60" layoutY="130" prefWidth="80"
+                 styleClass="button" text="登入"
+                 onAction="#handleLogin" />
+         <Button fx:id="cancelButton"
+                 layoutX="160" layoutY="130" prefWidth="80"
+                 styleClass="link-button" text="取消"
+                 onAction="#handleCancel" />
+
+</AnchorPane>

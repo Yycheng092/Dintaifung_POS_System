@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.collections.ObservableList?>
+
+
+
+
+<BorderPane prefHeight="700" prefWidth="900" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dintaifung.MainMenuController">
+             
+    <!-- 左半部 -->
+    <left>
+        <VBox alignment="CENTER" prefHeight="700" prefWidth="500.0" spacing="15" style="-fx-padding: 20;">
+            
+            <!-- 產品圖片與金額顯示區 -->
+            <VBox alignment="CENTER" prefHeight="250" spacing="15" style="-fx-border-color: #ddd; -fx-padding: 15;">
+                <ImageView fx:id="productImage" fitHeight="200" fitWidth="200" />
+                <Label fx:id="productName" style="-fx-font-size: 20px;" text="產品名稱 $0" />
+                <HBox alignment="CENTER" spacing="10">
+                    <ComboBox fx:id="quantityComboBox" prefWidth="80" />
+
+                    <Button fx:id="addToCartButton" style="-fx-background-color: #f06292; -fx-text-fill: white;" text="加入購物車" />
+                </HBox>
+            </VBox>
+            
+            
+            <!-- 2. 購物車列表 -->
+            <VBox spacing="10" alignment="CENTER" prefHeight="250" style="-fx-border-color: #ddd; -fx-padding: 15;">
+                <TableView fx:id="cartTable" prefHeight="200">
+                    <columns>
+                        <TableColumn fx:id="nameColumn" text="品名" prefWidth="200" />
+                        <TableColumn fx:id="priceColumn" text="價格" prefWidth="100" />
+                        <TableColumn fx:id="quantityColumn" text="數量" prefWidth="100" />
+                    </columns>
+                </TableView>
+            </VBox>
+            
+            <!-- 總金額顯示 -->
+            <VBox alignment="CENTER" prefHeight="100" spacing="10" style="-fx-border-color: #ddd; -fx-padding: 15;">
+                <Label fx:id="totalAmount" text="總金額: 0" style="-fx-font-size: 18px;" />
+            </VBox>
+            
+            <!-- 4. 底部功能按鈕 -->
+            <HBox alignment="CENTER" prefHeight="100" spacing="15" style="-fx-border-color: #ddd; -fx-padding: 15;">
+                <Button fx:id="checkoutButton" style="-fx-background-color: #4caf50; -fx-text-fill: white;" text="結帳" />
+                <Button fx:id="cancelOrderButton" style="-fx-background-color: #f44336; -fx-text-fill: white;" text="取消訂單" />
+                <Button fx:id="cancelSingleButton" style="-fx-background-color: #ffc107; -fx-text-fill: black;" text="取消單筆" />
+            </HBox>
+            
+        </VBox>
+    </left>
+    
+    <!-- 右半部 -->
+    <right>
+        <VBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="400.0" spacing="15" style="-fx-padding: 20;">
+            
+            <!-- 1. 會員與後台管理按鈕 -->
+            <HBox alignment="TOP_RIGHT" spacing="15">
+                <Label fx:id="memberPhoneLabel" text="未登入" style="-fx-text-fill: #333333; -fx-font-weight: bold;" />
+                <Button fx:id="memberLoginButton" style="-fx-background-color: #ce93d8; -fx-text-fill: white;" text="會員登入" />
+                <Button fx:id="backendManagementButton" style="-fx-background-color: #f06292; -fx-text-fill: white;" text="後台管理" />
+            </HBox>
+            
+            <!-- 分隔線 -->
+            <Separator prefWidth="400" />
+            
+            <!-- 2. 類別按鈕 -->
+            <HBox alignment="CENTER" spacing="15">
+                <Button fx:id="noodleSoupButton" style="-fx-background-color: #ffa726; -fx-text-fill: white; -fx-padding: 10 20;" text="湯麵" prefWidth="80" prefHeight="50" />
+                <Button fx:id="dryNoodleButton" style="-fx-background-color: #fb8c00; -fx-text-fill: white; -fx-padding: 10 20;" text="乾拌麵" prefWidth="80" prefHeight="50" />
+                <Button fx:id="friedRiceButton" style="-fx-background-color: #f57c00; -fx-text-fill: white; -fx-padding: 10 20;" text="炒飯" prefWidth="80" prefHeight="50" />
+                <Button fx:id="soupButton" style="-fx-background-color: #ef6c00; -fx-text-fill: white; -fx-padding: 10 20;" text="湯" prefWidth="80" prefHeight="50" />
+            </HBox>
+
+            <GridPane fx:id="menuGrid" hgap="15" prefHeight="388" prefWidth="450" style="-fx-padding: 10;" vgap="15">
+                <!-- 設定列與欄 -->
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="50.0" />
+                    <ColumnConstraints percentWidth="50.0" />
+                </columnConstraints>
+
+                <rowConstraints>
+                    <RowConstraints percentHeight="50.0" />
+                    <RowConstraints percentHeight="50.0" />
+                </rowConstraints>
+
+                <!-- 預留四張照片位置 -->
+                <VBox GridPane.columnIndex="0" GridPane.rowIndex="0" alignment="CENTER" spacing="5">
+                    <ImageView fx:id="menuItem1" fitHeight="194" fitWidth="194" />
+                </VBox>
+    
+                <VBox GridPane.columnIndex="1" GridPane.rowIndex="0" alignment="CENTER" spacing="5">
+                    <ImageView fx:id="menuItem2" fitHeight="194" fitWidth="194" />
+                </VBox>
+    
+                <VBox GridPane.columnIndex="0" GridPane.rowIndex="1" alignment="CENTER" spacing="5">
+                    <ImageView fx:id="menuItem3" fitHeight="194" fitWidth="194" />
+                </VBox>
+    
+                <VBox GridPane.columnIndex="1" GridPane.rowIndex="1" alignment="CENTER" spacing="5">
+                    <ImageView fx:id="menuItem4" fitHeight="194" fitWidth="194" />
+                </VBox>           
+            </GridPane>
+
+            
+            <!-- 4. 底部資訊顯示 (可切換為訂單或菜單介紹) -->
+            <TextArea fx:id="descriptionArea" editable="false" prefHeight="200.0" prefWidth="360.0" style="-fx-border-color: #ddd; -fx-padding: 8;" wrapText="true" />            
+        </VBox>
+    </right>
+    
+    
+</BorderPane>
